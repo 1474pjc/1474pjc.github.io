@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1474 Prince John Circle, Oakville, Ontario</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header, section { padding: 20px; }
+        header { background-color: #333; color: #fff; text-align: center; }
+        h2 { color: #333; }
+        .features, .custom-features { display: flex; flex-wrap: wrap; }
+        .feature, .custom-feature { flex: 1; min-width: 250px; margin: 10px; }
+        img { width: 100%; height: auto; border-radius: 5px; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .carousel { width: 100%; overflow: hidden; position: relative; }
+        .carousel-inner { display: flex; transition: transform 0.5s ease; }
+        .carousel-inner img { flex: 1 0 100%; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>1474 Prince John Circle, Oakville, Ontario</h1>
+    <p>Your Dream Home Awaits</p>
+</header>
+
+<section>
+    <div class="video-container">
+        <iframe src="https://player.vimeo.com/video/1076268477?h=eae45e1314" frameborder="0" allowfullscreen></iframe>
+    </div>
+</section>
+
+<section>
+    <h2>Gallery</h2>
+    <div class="carousel">
+        <div class="carousel-inner" id="carousel">
+            <img src="https://via.placeholder.com/800x500" alt="Gallery Image 1">
+            <img src="https://via.placeholder.com/800x500" alt="Gallery Image 2">
+            <img src="https://via.placeholder.com/800x500" alt="Gallery Image 3">
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Salient Features</h2>
+    <div class="features">
+        <div class="feature">
+            <img src="https://via.placeholder.com/400" alt="Spacious Kitchen">
+            <h3>Spacious Kitchen</h3>
+            <p>Modern kitchen with premium appliances.</p>
+        </div>
+        <div class="feature">
+            <img src="https://via.placeholder.com/400" alt="Elegant Living Room">
+            <h3>Elegant Living Room</h3>
+            <p>Luxurious space with designer finishes.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>Custom Features</h2>
+    <div class="custom-features">
+        <div class="custom-feature">
+            <img src="https://via.placeholder.com/400" alt="Customized Home Theatre">
+            <h3>Home Theatre</h3>
+            <p>State-of-the-art home entertainment system.</p>
+        </div>
+        <div class="custom-feature">
+            <img src="https://via.placeholder.com/400" alt="Outdoor Oasis">
+            <h3>Outdoor Oasis</h3>
+            <p>Beautifully landscaped garden and pool area.</p>
+        </div>
+    </div>
+</section>
+
+<footer style="text-align:center; padding:10px; background-color:#f4f4f4;">
+    <p>Contact Salesperson: Mike Zhou | AIMHOME Realty Inc.</p>
+    <p>Email: mike.zhou.rebay@gmail.com | Phone: 647.870.1398</p>
+</footer>
+
+<script>
+    const carouselInner = document.getElementById('carousel');
+    let currentIndex = 0;
+    const images = carouselInner.children.length;
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % images;
+        carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }, 3000);
+</script>
+
+</body>
+</html>
