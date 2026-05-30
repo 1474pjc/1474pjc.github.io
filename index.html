@@ -1,50 +1,1324 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1474 Prince John Circle, Oakville, Ontario</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header, footer { padding: 20px; text-align: center; }
-        header { background-color: #333; color: #fff; }
-        footer { background-color: #f4f4f4; }
-        section { padding: 20px; text-align: center; }
-        .pdf-viewer { margin: 20px auto; max-width: 800px; }
-        iframe { width: 100%; border: none; }
-        .pdf-link { margin-top: 20px; }
-        .listing-link { margin-top: 10px; }
-        .video-container { margin-top: 40px; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-    </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>1474 Prince John Circle — Oakville</title>
+<meta name="description" content="A meticulously updated home in Oakville where intentional design meets modern functionality. Premium fixtures, smart systems, and spaces made for both quiet evenings and gathering." />
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QGT27WZJG3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-QGT27WZJG3');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ---------- TOKENS ---------- */
+  :root{
+    --ink:        #1a1a1a;
+    --ink-soft:   #3a3a36;
+    --paper:      #f4efe6;   /* warm ivory */
+    --paper-2:    #ebe5d8;   /* slightly deeper for sections */
+    --rule:       #c9c1b1;   /* hairline rule */
+    --rule-soft:  #d9d2c2;
+    --sage:       #6e7a5e;   /* the accent, pulled from kitchen glass + bedroom wall */
+    --sage-soft:  #8a957a;
+    --cream:      #faf6ed;
+    --serif:      'Cormorant Garamond', 'Spectral', Georgia, serif;
+    --sans:       'Inter Tight', system-ui, -apple-system, sans-serif;
+    --mono:       'JetBrains Mono', ui-monospace, Menlo, monospace;
+    --gutter:     clamp(20px, 4.5vw, 64px);
+    --col-gap:    clamp(20px, 3.5vw, 56px);
+  }
+
+  /* ---------- BASE ---------- */
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-weight:400;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  img{display:block; max-width:100%; height:auto}
+  a{color:inherit; text-decoration:none}
+  button{font:inherit; color:inherit; background:none; border:0; cursor:pointer}
+
+  .wrap{padding-inline:var(--gutter)}
+  .label{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .rule{height:1px; background:var(--rule); border:0}
+
+  /* ---------- TOP NAV ---------- */
+  header.nav{
+    position:fixed; top:0; left:0; right:0;
+    z-index:50;
+    padding:18px var(--gutter);
+    display:flex; align-items:center; justify-content:space-between;
+    backdrop-filter:saturate(140%) blur(10px);
+    background:color-mix(in oklab, var(--paper) 78%, transparent);
+    border-bottom:1px solid transparent;
+    transition:background .35s ease, border-color .35s ease, padding .35s ease;
+  }
+  header.nav.scrolled{
+    background:color-mix(in oklab, var(--paper) 94%, transparent);
+    border-bottom-color:var(--rule-soft);
+    padding-block:12px;
+  }
+  .brand{
+    font-family:var(--serif);
+    font-size:20px;
+    letter-spacing:0.01em;
+    font-style:italic;
+    font-weight:500;
+  }
+  .brand small{
+    font-family:var(--mono); font-style:normal; font-size:10px;
+    letter-spacing:.2em; text-transform:uppercase;
+    margin-left:10px; color:var(--ink-soft);
+  }
+  nav.links{display:flex; gap:34px}
+  nav.links a{
+    font-family:var(--mono); font-size:11px;
+    letter-spacing:.18em; text-transform:uppercase;
+    color:var(--ink-soft);
+    position:relative;
+  }
+  nav.links a:hover{color:var(--ink)}
+  nav.links a::after{
+    content:""; position:absolute; left:0; right:0; bottom:-6px;
+    height:1px; background:var(--ink); transform:scaleX(0); transform-origin:left;
+    transition:transform .35s ease;
+  }
+  nav.links a:hover::after{transform:scaleX(1)}
+  .cta{
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    padding:10px 18px; border:1px solid var(--ink); color:var(--ink);
+    transition:background .25s ease, color .25s ease;
+  }
+  .cta:hover{background:var(--ink); color:var(--cream)}
+  @media (max-width:860px){
+    nav.links{display:none}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    height:100vh; min-height:680px;
+    overflow:hidden;
+  }
+  .hero .photo{
+    position:absolute; inset:0;
+    background:url("photos/01-001.jpg") center 62%/cover no-repeat;
+    transform:scale(1.04);
+  }
+  .hero::after{
+    content:""; position:absolute; inset:0;
+    background:
+      linear-gradient(to bottom, rgba(20,20,20,.45) 0%, rgba(20,20,20,.1) 28%, rgba(20,20,20,0) 50%, rgba(20,20,20,.1) 75%, rgba(20,20,20,.55) 100%);
+  }
+  .hero-content{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; justify-content:space-between;
+    padding:130px var(--gutter) 56px;
+    color:var(--cream);
+    z-index:2;
+  }
+  .hero-top{display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap}
+  .hero-top .label{color:rgba(250,246,237,.78)}
+  .estate-tag{
+    font-family:var(--serif); font-style:italic; font-size:18px; opacity:.9;
+  }
+  .estate-tag em{ font-style:normal; font-family:var(--mono); font-size:11px; letter-spacing:.2em; margin-right:8px;}
+  .hero-title{
+    font-family:var(--serif);
+    font-weight:300;
+    font-size:clamp(54px, 9vw, 148px);
+    line-height:.92;
+    letter-spacing:-0.015em;
+    max-width:14ch;
+  }
+  .hero-title em{font-style:italic; color:#e6dcc4;}
+  .hero-bottom{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:32px; align-items:end;
+  }
+  .hero-bottom .col h4{
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    color:rgba(250,246,237,.7); margin-bottom:8px;
+  }
+  .hero-bottom .col p{
+    font-family:var(--serif); font-size:clamp(18px, 1.6vw, 22px); line-height:1.35;
+    color:var(--cream);
+  }
+  @media (max-width:760px){
+    .hero-bottom{grid-template-columns:1fr; gap:18px}
+  }
+
+  .scroll-hint{
+    position:absolute; left:var(--gutter); bottom:24px;
+    font-family:var(--mono); font-size:10px; letter-spacing:.25em; text-transform:uppercase;
+    color:rgba(250,246,237,.7);
+    display:flex; align-items:center; gap:12px;
+  }
+  .scroll-hint .line{display:inline-block; width:42px; height:1px; background:rgba(250,246,237,.6);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{transform:scaleX(.4); transform-origin:left}
+    50%{transform:scaleX(1); transform-origin:left}
+  }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{
+    border-block:1px solid var(--rule);
+    background:var(--paper);
+    overflow:hidden;
+    padding:18px 0;
+  }
+  .marquee-track{
+    display:flex; gap:48px;
+    width:max-content;
+    animation:scroll 60s linear infinite;
+    font-family:var(--serif); font-style:italic; font-size:22px;
+    color:var(--ink-soft);
+  }
+  .marquee-track span{display:inline-flex; align-items:center; gap:48px; white-space:nowrap}
+  .marquee-track span::after{
+    content:"✦"; color:var(--sage); font-style:normal; font-size:14px;
+  }
+  @keyframes scroll{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding-block:clamp(80px, 10vw, 160px)}
+  .section-head{
+    display:grid; grid-template-columns:1fr 2.2fr; gap:var(--col-gap);
+    margin-bottom:clamp(60px, 6vw, 100px);
+    align-items:start;
+  }
+  .section-head .label{padding-top:8px; border-top:1px solid var(--ink); display:inline-block; max-width:max-content}
+  .section-head h2{
+    font-family:var(--serif); font-weight:300;
+    font-size:clamp(36px, 5.2vw, 76px); line-height:1.02;
+    letter-spacing:-0.01em;
+  }
+  .section-head h2 em{font-style:italic; color:var(--sage)}
+  .section-head p{
+    margin-top:24px; font-size:18px; line-height:1.55;
+    color:var(--ink-soft); max-width:60ch;
+  }
+  @media (max-width:760px){
+    .section-head{grid-template-columns:1fr; gap:18px}
+  }
+
+  /* ---------- AT A GLANCE ---------- */
+  .glance{
+    border-top:1px solid var(--ink);
+    display:grid; grid-template-columns:repeat(5, 1fr);
+    gap:0;
+  }
+  .glance .cell{
+    padding:36px 24px 32px 0;
+    border-right:1px solid var(--rule-soft);
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .glance .cell:last-child{border-right:0; padding-right:0}
+  .glance .num{
+    font-family:var(--serif); font-weight:300;
+    font-size:clamp(40px, 4.4vw, 64px); line-height:1;
+    letter-spacing:-.02em;
+  }
+  .glance .num sup{font-size:.45em; vertical-align:top; color:var(--sage); margin-left:4px; font-style:italic}
+  .glance .lbl{font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft)}
+  @media (max-width:880px){
+    .glance{grid-template-columns:repeat(2,1fr)}
+    .glance .cell{padding-right:24px; border-right:1px solid var(--rule-soft);}
+    .glance .cell:nth-child(2n){border-right:0}
+    .glance .cell:nth-child(odd){border-right:1px solid var(--rule-soft)}
+  }
+
+  /* ---------- FEATURE SPREADS (editorial split) ---------- */
+  .spread{
+    display:grid; gap:var(--col-gap);
+    margin-block:clamp(80px, 10vw, 140px);
+    align-items:center;
+  }
+  .spread.left  { grid-template-columns:1.25fr 1fr; }
+  .spread.right { grid-template-columns:1fr 1.25fr; }
+  .spread.right .text { order:-1; }
+  .spread .media{
+    position:relative;
+  }
+  .spread .media img{
+    width:100%; aspect-ratio:4/5; object-fit:cover;
+  }
+  .spread .media.landscape img{ aspect-ratio:5/4; }
+  .spread .media .caption{
+    position:absolute; left:0; bottom:-44px;
+    font-family:var(--mono); font-size:10px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .spread .text{ padding-block:24px;}
+  .spread .pager{
+    font-family:var(--mono); font-size:11px; letter-spacing:.2em; color:var(--sage);
+    margin-bottom:24px; display:flex; align-items:center; gap:14px;
+  }
+  .spread .pager::before{content:""; width:48px; height:1px; background:var(--sage)}
+  .spread h3{
+    font-family:var(--serif); font-weight:300;
+    font-size:clamp(34px, 4.6vw, 64px); line-height:1.02;
+    letter-spacing:-.01em; margin-bottom:24px;
+  }
+  .spread h3 em{font-style:italic}
+  .spread .lede{
+    font-family:var(--serif); font-style:italic;
+    font-size:clamp(20px, 1.7vw, 26px); line-height:1.45;
+    color:var(--ink-soft); margin-bottom:28px;
+  }
+  .spread .body{font-size:16.5px; line-height:1.7; color:var(--ink-soft); max-width:46ch}
+  .spread .featlist{
+    margin-top:36px; padding-top:24px; border-top:1px solid var(--rule);
+    display:grid; gap:14px;
+  }
+  .spread .featlist .row{
+    display:grid; grid-template-columns:auto 1fr; gap:18px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .spread .featlist .row strong{ color:var(--ink); font-weight:500 }
+  @media (max-width:860px){
+    .spread.left, .spread.right{ grid-template-columns:1fr }
+    .spread.right .text{ order:initial }
+    .spread .media .caption{ position:static; margin-top:12px }
+  }
+
+  /* ---------- FULL BLEED BREAK ---------- */
+  .bleed{
+    position:relative;
+    height:80vh; min-height:520px;
+    background:var(--ink);
+    overflow:hidden;
+  }
+  .bleed img{ width:100%; height:100%; object-fit:cover; opacity:.92}
+  .bleed .pull{
+    position:absolute; left:var(--gutter); right:var(--gutter); bottom:48px;
+    color:var(--cream);
+    display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end;
+  }
+  .bleed .pull blockquote{
+    font-family:var(--serif); font-style:italic; font-weight:300;
+    font-size:clamp(26px, 3vw, 46px); line-height:1.15;
+    letter-spacing:-.005em; max-width:22ch;
+  }
+  .bleed .pull .cite{
+    font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+    color:rgba(250,246,237,.75); text-align:right;
+  }
+  @media (max-width:760px){
+    .bleed .pull{grid-template-columns:1fr; gap:18px}
+    .bleed .pull .cite{text-align:left}
+  }
+
+  /* ---------- CAROUSEL ---------- */
+  .carousel-container{
+    position:relative;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+  }
+  .carousel-track{
+    display:flex;
+    transition:transform .8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    height:100%;
+  }
+  .carousel-slide{
+    min-width:100%;
+    height:100%;
+    position:relative;
+  }
+  .carousel-slide img{
+    width:100%; height:100%; object-fit:cover; opacity:.92
+  }
+  .carousel-dots{
+    position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+    display:flex; gap:12px; z-index:10;
+  }
+  .carousel-dot{
+    width:10px; height:10px; border-radius:50%;
+    background:rgba(250,246,237,.4);
+    cursor:pointer;
+    transition:background .35s ease;
+  }
+  .carousel-dot.active{
+    background:rgba(250,246,237,.95);
+  }
+  .carousel-nav{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:48px; height:48px;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(250,246,237,.1); color:var(--cream);
+    cursor:pointer; z-index:10;
+    transition:background .35s ease;
+    border:1px solid rgba(250,246,237,.2);
+    font-family:var(--mono); font-size:18px;
+  }
+  .carousel-nav:hover{
+    background:rgba(250,246,237,.2);
+  }
+  .carousel-nav.prev{left:24px}
+  .carousel-nav.next{right:24px}
+
+  /* ---------- PROVENANCE / MAKERS ---------- */
+  .makers{ background:var(--paper-2); }
+  .maker-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr);
+    border-top:1px solid var(--ink); border-left:1px solid var(--rule-soft);
+  }
+  .maker{
+    padding:42px 32px 36px;
+    border-right:1px solid var(--rule-soft);
+    border-bottom:1px solid var(--rule-soft);
+    display:flex; flex-direction:column; gap:10px;
+    background:var(--paper-2);
+    transition:background .3s ease;
+  }
+  .maker:hover{background:var(--cream)}
+  .maker .num{
+    font-family:var(--mono); font-size:10px; letter-spacing:.22em; color:var(--sage); text-transform:uppercase;
+  }
+  .maker h4{
+    font-family:var(--serif); font-weight:400;
+    font-size:clamp(28px, 2.6vw, 38px); line-height:1;
+    letter-spacing:.01em;
+  }
+  .maker .origin{
+    font-family:var(--serif); font-style:italic; font-size:15px; color:var(--ink-soft);
+  }
+  .maker p{
+    margin-top:18px; font-size:14.5px; line-height:1.55; color:var(--ink-soft); max-width:36ch;
+  }
+  @media (max-width:880px){ .maker-grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:520px){ .maker-grid{grid-template-columns:1fr} }
+
+  /* ---------- GALLERY MOSAIC ---------- */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(12, 1fr);
+    gap:8px;
+  }
+  .gallery figure{
+    position:relative; cursor:zoom-in; overflow:hidden;
+    background:var(--paper-2);
+  }
+  .gallery figure img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform 1.4s cubic-bezier(.2,.7,.2,1), filter .4s ease;
+  }
+  .gallery figure:hover img{ transform:scale(1.04); filter:brightness(.92) }
+  .gallery figure figcaption{
+    position:absolute; left:14px; bottom:12px;
+    font-family:var(--mono); font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+    color:#fff; background:rgba(20,20,20,.55); padding:6px 10px;
+    opacity:0; transform:translateY(6px); transition:.35s ease;
+  }
+  .gallery figure:hover figcaption{opacity:1; transform:none}
+
+  /* mosaic placement — 12 col grid */
+  .g1{grid-column:span 7; aspect-ratio:16/10}
+  .g2{grid-column:span 5; aspect-ratio:4/5}
+  .g3{grid-column:span 4; aspect-ratio:4/5}
+  .g4{grid-column:span 4; aspect-ratio:4/5}
+  .g5{grid-column:span 4; aspect-ratio:4/5}
+  .g6{grid-column:span 5; aspect-ratio:5/4}
+  .g7{grid-column:span 7; aspect-ratio:16/9}
+  .g8{grid-column:span 6; aspect-ratio:1/1}
+  .g9{grid-column:span 6; aspect-ratio:1/1}
+  .g10{grid-column:span 12; aspect-ratio:21/9}
+  @media (max-width:760px){
+    .gallery{grid-template-columns:repeat(2,1fr); gap:6px}
+    .gallery figure{grid-column:span 1 !important; aspect-ratio:4/5 !important}
+    .g1, .g10{grid-column:span 2 !important; aspect-ratio:16/10 !important}
+  }
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{
+    display:grid; grid-template-columns:1fr 3fr; gap:var(--col-gap);
+    border-top:1px solid var(--ink);
+    padding-top:48px;
+  }
+  .timeline .years{
+    position:sticky; top:120px; align-self:start;
+  }
+  .timeline .years .label{display:block; margin-bottom:18px}
+  .timeline .years h3{
+    font-family:var(--serif); font-weight:300; font-style:italic;
+    font-size:clamp(28px, 3vw, 40px); line-height:1.1;
+    color:var(--ink); max-width:14ch;
+  }
+  .tl-list{ display:grid; gap:0 }
+  .tl-row{
+    display:grid; grid-template-columns:120px 1fr;
+    gap:32px;
+    padding:32px 0;
+    border-bottom:1px solid var(--rule-soft);
+    align-items:start;
+  }
+  .tl-row:last-child{border-bottom:0}
+  .tl-year{
+    font-family:var(--serif); font-weight:400;
+    font-size:32px; letter-spacing:.02em;
+    color:var(--sage);
+  }
+  .tl-items{ display:grid; gap:6px }
+  .tl-items li{
+    list-style:none;
+    font-size:16px; color:var(--ink-soft); line-height:1.55;
+  }
+  .tl-items li strong{color:var(--ink); font-weight:500}
+  @media (max-width:760px){
+    .timeline{grid-template-columns:1fr}
+    .timeline .years{position:static}
+    .tl-row{grid-template-columns:1fr; gap:8px}
+  }
+
+  /* ---------- LOCATION ---------- */
+  .location{
+    display:grid; grid-template-columns:1fr 1fr; gap:var(--col-gap);
+    align-items:center;
+  }
+  .location .map{
+    position:relative;
+    aspect-ratio:1/1;
+    background:var(--paper-2);
+    border:1px solid var(--rule);
+    overflow:hidden;
+  }
+  .location .map svg{position:absolute; inset:0; width:100%; height:100%}
+  .location .map .pin{
+    position:absolute; left:50%; top:50%;
+    transform:translate(-50%,-50%);
+    width:18px; height:18px; border-radius:50%;
+    background:var(--sage); box-shadow:0 0 0 6px color-mix(in oklab, var(--sage) 25%, transparent), 0 0 0 14px color-mix(in oklab, var(--sage) 12%, transparent);
+    animation:pin 3s ease-in-out infinite;
+  }
+  @keyframes pin{
+    0%,100%{ box-shadow:0 0 0 6px color-mix(in oklab, var(--sage) 25%, transparent), 0 0 0 14px color-mix(in oklab, var(--sage) 12%, transparent); }
+    50%{    box-shadow:0 0 0 10px color-mix(in oklab, var(--sage) 18%, transparent), 0 0 0 22px color-mix(in oklab, var(--sage) 6%, transparent); }
+  }
+  .location .map .addr{
+    position:absolute; left:24px; top:24px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--ink); background:var(--cream); padding:8px 12px;
+  }
+  .location .details h3{
+    font-family:var(--serif); font-weight:300;
+    font-size:clamp(32px, 4vw, 52px); line-height:1.05; margin-bottom:24px;
+  }
+  .location .details p{
+    color:var(--ink-soft); font-size:17px; line-height:1.65; margin-bottom:18px;
+    max-width:48ch;
+  }
+  .access{
+    margin-top:36px; display:grid; gap:14px;
+  }
+  .access .row{
+    display:grid; grid-template-columns:90px 1fr auto; gap:20px;
+    padding-block:14px; border-top:1px solid var(--rule-soft);
+    font-family:var(--mono); font-size:12px; letter-spacing:.06em;
+    align-items:baseline;
+  }
+  .access .row:last-child{border-bottom:1px solid var(--rule-soft)}
+  .access .row .k{color:var(--sage); text-transform:uppercase; letter-spacing:.18em; font-size:10.5px}
+  .access .row .v{color:var(--ink); font-family:var(--serif); font-size:16px; letter-spacing:0}
+  .access .row .t{color:var(--ink-soft); font-size:11px; text-transform:uppercase; letter-spacing:.18em}
+  @media (max-width:860px){ .location{grid-template-columns:1fr} }
+
+  .agent-card{
+    display:grid; grid-template-columns:1.1fr .9fr;
+    gap:var(--col-gap); align-items:center; padding-block:clamp(80px, 10vw, 120px);
+  }
+  .agent-card .agent-copy{max-width:42rem;}
+  .agent-card h2{
+    font-family:var(--serif); font-weight:300;
+    font-size:clamp(44px, 6vw, 68px); line-height:1.04;
+    letter-spacing:-0.02em; margin-bottom:22px;
+  }
+  .agent-card h2 em{font-style:italic; color:var(--sage);}
+  .agent-card p{margin:0; font-size:18px; line-height:1.7; color:var(--ink-soft);}
+  .agent-card .agent-contact{display:flex; flex-wrap:wrap; gap:14px; margin-top:26px;}
+  .agent-card .agent-contact a{
+    display:inline-flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em;
+    text-transform:uppercase; padding:14px 18px;
+    border:1px solid var(--ink); color:var(--ink);
+    transition:background .25s ease,color .25s ease;
+  }
+  .agent-card .agent-contact a:hover{background:var(--ink); color:var(--cream);}
+  .agent-card .agent-link{margin-top:16px; font-size:16px;}
+  .agent-card .agent-link a{color:var(--ink); text-decoration:underline;}
+  .agent-card .agent-photo{
+    min-height:360px; border-radius:28px; overflow:hidden;
+    background:linear-gradient(135deg, #f6f1e8 0%, #d8ccba 100%);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .agent-card .agent-photo img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .agent-card .photo-mask{
+    font-family:var(--serif); font-size:clamp(60px, 10vw, 84px);
+    color:var(--ink); opacity:.58; letter-spacing:-0.04em;
+  }
+  @media (max-width:860px){
+    .agent-card{grid-template-columns:1fr; padding-block:clamp(60px, 8vw, 80px);}
+  }
+
+  /* ---------- CTA ---------- */
+  .visit{
+    background:var(--ink); color:var(--cream);
+    padding-block:clamp(80px,10vw,140px);
+  }
+  .visit .grid{
+    display:grid; grid-template-columns:1.2fr 1fr; gap:var(--col-gap); align-items:end;
+  }
+  .visit h2{
+    font-family:var(--serif); font-weight:300;
+    font-size:clamp(48px, 7vw, 110px); line-height:.96; letter-spacing:-.015em;
+  }
+  .visit h2 em{font-style:italic; color:#cbb98e}
+  .visit p{
+    color:rgba(250,246,237,.78); font-size:17px; line-height:1.6; max-width:42ch;
+    margin-top:24px;
+  }
+  .visit .form{
+    display:grid; gap:18px; margin-top:36px;
+  }
+  .visit .form .field{
+    border-bottom:1px solid rgba(250,246,237,.25);
+    display:flex; align-items:center; gap:14px;
+    padding:14px 0;
+  }
+  .visit .form .field .label{color:rgba(250,246,237,.55); min-width:80px}
+  .visit .form input, .visit .form select{
+    background:transparent; border:0; color:var(--cream);
+    font-family:var(--serif); font-size:18px; flex:1; outline:none;
+    padding:0;
+  }
+  .visit .form input::placeholder{color:rgba(250,246,237,.4)}
+  .visit .form select{appearance:none; cursor:pointer}
+  .visit .form select option{background:var(--ink); color:var(--cream)}
+  .visit .submit{
+    margin-top:24px;
+    padding:18px 28px;
+    background:var(--cream); color:var(--ink);
+    font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+    width:max-content;
+    transition:background .25s ease, transform .25s ease;
+  }
+  .visit .submit:hover{background:#fff; transform:translateY(-2px)}
+  @media (max-width:760px){ .visit .grid{grid-template-columns:1fr} }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--ink); color:rgba(250,246,237,.6);
+    border-top:1px solid rgba(250,246,237,.12);
+    padding:48px var(--gutter) 36px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+  }
+  footer .row{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:18px;
+    align-items:center;
+  }
+  footer .brand-foot{
+    font-family:var(--serif); font-style:italic; font-size:16px;
+    color:var(--cream); text-transform:none; letter-spacing:0;
+  }
+
+  /* ---------- LIGHTBOX ---------- */
+  .lb{
+    position:fixed; inset:0; z-index:100;
+    background:rgba(10,10,10,.96);
+    display:none; align-items:center; justify-content:center;
+    padding:32px;
+  }
+  .lb.open{display:flex}
+  .lb img{ max-width:92vw; max-height:88vh; object-fit:contain; box-shadow:0 12px 60px rgba(0,0,0,.5)}
+  .lb .close, .lb .prev, .lb .next{
+    position:absolute;
+    width:48px; height:48px; border-radius:50%;
+    background:rgba(250,246,237,.08);
+    color:var(--cream);
+    display:grid; place-items:center;
+    font-family:var(--mono); font-size:14px;
+    transition:background .25s ease;
+  }
+  .lb .close:hover, .lb .prev:hover, .lb .next:hover{background:rgba(250,246,237,.2)}
+  .lb .close{top:24px; right:24px}
+  .lb .prev{left:24px; top:50%; transform:translateY(-50%)}
+  .lb .next{right:24px; top:50%; transform:translateY(-50%)}
+  .lb .counter{
+    position:absolute; left:24px; bottom:24px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+    color:rgba(250,246,237,.7);
+  }
+
+  /* ---------- REVEAL ANIMATIONS ---------- */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity 1s ease, transform 1s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1; transform:none}
+
+  ::selection{background:var(--sage); color:var(--cream)}
+
+  /* ---------- VIDEO TOUR ---------- */
+  .video-tour{
+    background:var(--ink);
+    padding-block:clamp(80px, 10vw, 140px);
+    color:var(--cream);
+  }
+  .video-tour .section-head h2{ color:var(--cream); }
+  .video-tour .section-head h2 em{ color:#cbb98e; }
+  .video-tour .section-head .label{ color:rgba(250,246,237,.55); border-top-color:rgba(250,246,237,.25); }
+  .video-tour .section-head p{ color:rgba(250,246,237,.65); }
+  .video-wrap{
+    position:relative;
+    width:100%;
+    padding-bottom:56.25%;
+    background:#000;
+    border:1px solid rgba(250,246,237,.1);
+  }
+  .video-wrap iframe{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    border:0;
+  }
+  .video-meta{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px;
+    margin-top:24px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    color:rgba(250,246,237,.45);
+  }
+</style>
 </head>
 <body>
 
-<header>
-    <h1>1474 Prince John Circle, Oakville, Ontario</h1>
-    <p>Your Dream Home Awaits</p>
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="#top" class="brand" data-screen-label="Brand">1474<small>Prince John Cir · Oakville</small></a>
+  <nav class="links">
+    <a href="#story">The Home</a>
+    <a href="#kitchen">Interiors</a>
+    <a href="#makers">Provenance</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#updates">Investments</a>
+    <a href="#location">Location</a>
+    <a href="#video">Video Tour</a>
+  </nav>
+  <a href="#visit" class="cta">Book a Viewing</a>
 </header>
 
-<section>
-    <h2>Detailed House Brochure</h2>
-    <div class="pdf-viewer">
-        <iframe src="House_Brochure.pdf" height="600"></iframe>
-    </div>
-    <div class="pdf-link">
-        <a href="House_Brochure.pdf" target="_blank">Download Brochure (PDF)</a>
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" data-screen-label="Hero">
+  <div class="photo"></div>
+  <div class="hero-content">
+    <div class="hero-top">
+      <span class="label">Private Sale · Oakville, ON</span>
+      <span class="estate-tag"><em>Estate №</em>1474 / 2026</span>
     </div>
 
-    <div class="video-container">
-        <iframe src="https://player.vimeo.com/video/1076268477?h=eae45e1314" frameborder="0" allowfullscreen></iframe>
+    <h1 class="hero-title">A home<br />designed with<br /><em>intention.</em></h1>
+
+    <div class="hero-bottom">
+      <div class="col">
+        <h4>The Address</h4>
+        <p>1474 Prince John Circle<br/>Oakville, Ontario</p>
+      </div>
+      <div class="col">
+        <h4>The Highlight</h4>
+        <p>Custom kitchen. Spa ensuite.<br/>Finished basement.</p>
+      </div>
+      <div class="col">
+        <h4>The Reason</h4>
+        <p>Premium fixtures, smart systems, top-ranked schools.</p>
+      </div>
     </div>
+  </div>
+  <div class="scroll-hint"><span class="line"></span> Scroll to discover</div>
 </section>
 
-<footer>
-    <p>Prop is now off market </p>
-    <div class="listing-link">
-        <a href="https://www.realtor.ca/real-estate/28172071/1474-prince-john-circle-oakville-cv-clearview-1004-cv-clearview" target="_blank">View on Realtor.ca</a>
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Fantasy Brown Granite</span><span>RUBINET · Lifetime Warranty</span><span>RIOBEL Spa Fixtures</span><span>Italian Tiles from CIOT</span><span>Wood-Burning Fireplace</span><span>Pentair RO with Remineralization</span><span>Lennox + GE Heat Pump (2024)</span><span>10-Year Roof Warranty</span><span>Finished Basement · Wet Bar</span><span>Custom Barn Doors · VIBA Hardware</span>
+    <span>Fantasy Brown Granite</span><span>RUBINET · Lifetime Warranty</span><span>RIOBEL Spa Fixtures</span><span>Italian Tiles from CIOT</span><span>Wood-Burning Fireplace</span><span>Pentair RO with Remineralization</span><span>Lennox + GE Heat Pump (2024)</span><span>10-Year Roof Warranty</span><span>Finished Basement · Wet Bar</span><span>Custom Barn Doors · VIBA Hardware</span>
+  </div>
+</div>
+
+<!-- ============ STORY / GLANCE ============ -->
+<section class="wrap" id="story" data-screen-label="Story">
+  <div class="section-head reveal">
+    <span class="label">01 — At a Glance</span>
+    <div>
+      <h2>A meticulously updated open-concept residence where contemporary <em>comfort</em> and warm, lived-in spaces meet without compromise.</h2>
+      <p>Set in one of Oakville's most desirable family neighborhoods, 1474 Prince John Circle is the product of years of intentional choices — Canadian-made fixtures with lifetime warranties, Italian and Spanish tile, smart climate control, and a finished lower level made for both quiet evenings and big gatherings.</p>
     </div>
+  </div>
+
+  <div class="glance reveal">
+    <div class="cell"><div class="num">3<sup>+1</sup></div><div class="lbl">Bedrooms</div></div>
+    <div class="cell"><div class="num">3</div><div class="lbl">Bathrooms</div></div>
+    <div class="cell"><div class="num">2<sup>+1</sup></div><div class="lbl">Levels Finished</div></div>
+    <div class="cell"><div class="num">'25</div><div class="lbl">New Roof · 10-yr Warranty</div></div>
+    <div class="cell"><div class="num">'24</div><div class="lbl">HVAC + Smart Systems</div></div>
+  </div>
+</section>
+
+<!-- ============ FEATURE SPREAD — KITCHEN ============ -->
+<section class="wrap" id="kitchen" data-screen-label="Kitchen">
+  <div class="spread left reveal">
+    <div class="media">
+      <img src="photos/11-011.jpg" alt="Open-concept kitchen with marble island and dining" loading="lazy" />
+      <div class="caption">Fig. 01 · Open-Concept Kitchen, looking east</div>
+    </div>
+    <div class="text">
+      <div class="pager">02 / 07 · The Kitchen</div>
+      <h3>The heart, made of <em>fantasy brown</em> granite.</h3>
+      <p class="lede">Custom shelving in a rustic farmhouse spirit, paired with modern subway tile and a painted glass backsplash color-matched to the stone.</p>
+      <p class="body">The island is treated as living furniture — custom knobs, a dining side built for casual mornings, and a generous lip designed for both prep and presence. Italian tile from CENTURA carries the floor; warm hardwood carries the dining room. Two materials, one quiet conversation.</p>
+
+      <div class="featlist">
+        <div class="row"><strong>Faucetry</strong><span>Rubinet · Canadian · Lifetime</span></div>
+        <div class="row"><strong>Stone</strong><span>Fantasy Brown Granite</span></div>
+        <div class="row"><strong>Floor</strong><span>Italian Tile · Centura</span></div>
+        <div class="row"><strong>Water</strong><span>Pentair RO · Remineralized · '22</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="spread right reveal">
+    <div class="media landscape">
+      <img src="photos/14-014.jpg" alt="Cooktop and stainless hood with painted glass backsplash" loading="lazy" />
+      <div class="caption">Fig. 02 · Cooktop wall · Sakura vented hood</div>
+    </div>
+    <div class="text">
+      <div class="pager">03 / 07 · The Detail</div>
+      <h3>A backsplash that <em>thinks</em>.</h3>
+      <p class="lede">Painted glass behind the cooktop — color-matched to the granite — makes cleanup effortless while reading as a single, deliberate composition.</p>
+      <p class="body">A high-efficiency vented hood eliminates odors entirely. Built-in Bosch ovens and the gas cooktop sit flush against the white cabinetry, so the kitchen never advertises itself as a kitchen — it just works.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLEED BREAK — FAMILY ROOM CAROUSEL ============ -->
+<section class="bleed reveal" data-screen-label="Family Room Bleed">
+  <div class="carousel-container">
+    <div class="carousel-track" id="familyRoomCarousel">
+      <div class="carousel-slide">
+        <img src="photos/20-020.jpg" alt="Family room with wood-burning fireplace" />
+      </div>
+      <div class="carousel-slide">
+        <img src="photos/21-021.jpg" alt="Family room with designer chandeliers and arched windows" />
+      </div>
+      <div class="carousel-slide">
+        <img src="photos/22-022.jpg" alt="Family room built-in shelving and light fixtures" />
+      </div>
+    </div>
+    <div class="carousel-dots" id="carouselDots">
+      <div class="carousel-dot active" data-slide="0"></div>
+      <div class="carousel-dot" data-slide="1"></div>
+      <div class="carousel-dot" data-slide="2"></div>
+    </div>
+    <button class="carousel-nav prev" id="carouselPrev" aria-label="Previous slide">‹</button>
+    <button class="carousel-nav next" id="carouselNext" aria-label="Next slide">›</button>
+  </div>
+  <div class="pull">
+    <blockquote>"The family room captures the home's essence — warmth, light, and a sense of togetherness."</blockquote>
+    <div class="cite">Wood-Burning Fireplace · Built-in Shelving<br/>Designer Chandeliers · Epic Sunrise Views</div>
+  </div>
+</section>
+
+<!-- ============ FEATURE SPREAD — PRIMARY SUITE ============ -->
+<section class="wrap" id="suite" data-screen-label="Primary Suite">
+  <div class="spread right reveal">
+    <div class="media">
+      <img src="photos/bedroom_w_sheets.png" alt="Primary bedroom with teal accent wall" loading="lazy" />
+      <div class="caption">Fig. 03 · Primary Bedroom · Barn-door dressing entry</div>
+    </div>
+    <div class="text">
+      <div class="pager">04 / 07 · The Sanctuary</div>
+      <h3>A room that <em>quiets</em> the day.</h3>
+      <p class="lede">A wallpapered green accent wall, soft sconces, and warm hardwood. Custom barn doors with soft-close VIBA hardware slide open to a built-in closet system.</p>
+      <p class="body">Open display shelving in warm wood holds the books, the art, the keepsakes. The urban ceiling fan runs nearly silent, with bedside remote control. Designed for the end of the day, not the beginning.</p>
+    </div>
+  </div>
+
+  <div class="spread left reveal">
+    <div class="media">
+      <img src="photos/28-028.jpg" alt="Primary ensuite with double vanity, glass shower, towel warmer" loading="lazy" />
+      <div class="caption">Fig. 04 · Primary Ensuite · Towel warmer at right</div>
+    </div>
+    <div class="text">
+      <div class="pager">05 / 07 · The Ensuite</div>
+      <h3>Boutique hotel, <em>at home.</em></h3>
+      <p class="lede">Rain-head shower with linear drain, curb-less and seamless. RIOBEL fixtures deliver hot water almost instantly, with temperature memory tuned to your preferred setting.</p>
+      <p class="body">A towel warmer that also sterilizes. Mirrors from RENVIL — the Quebec art house founded in 1967. Spanish FAENZA baseboard tiles that prevent mildew while reading as ornament. Every choice carries provenance.</p>
+
+      <div class="featlist">
+        <div class="row"><strong>Shower</strong><span>Riobel · Rain-Head · Linear Drain</span></div>
+        <div class="row"><strong>Mirrors</strong><span>Renvil · Quebec · Est. 1967</span></div>
+        <div class="row"><strong>Baseboard</strong><span>Faenza · Spanish Tile</span></div>
+        <div class="row"><strong>Comfort</strong><span>Towel Warmer · Sterilizing</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURE SPREAD — BASEMENT & OUTDOOR ============ -->
+<section class="wrap" id="more">
+  <div class="spread right reveal">
+    <div class="media landscape">
+      <img src="photos/32-032.jpg" alt="Finished basement with wet bar and yellow sofa" loading="lazy" />
+      <div class="caption">Fig. 05 · Finished Lower Level · 2024 Wet Bar</div>
+    </div>
+    <div class="text">
+      <div class="pager">06 / 07 · The Lower Level</div>
+      <h3>Made for <em>gathering.</em></h3>
+      <p class="lede">A 2024 wet bar with a fresh, modern backsplash. 100% water-resistant vinyl flooring with a 25-year warranty over a DRI-CORE subfloor that raises the room 5°C in winter.</p>
+      <p class="body">A second ensuite-style bathroom — rain-head Riobel shower, Italian CIOT tile — anchors the level. There's a rough-in for a sauna. Pot lights on dimmers throughout. Add a private entry from the garage and the level becomes a true second living suite.</p>
+    </div>
+  </div>
+
+  <div class="spread left reveal">
+    <div class="media landscape">
+      <img src="photos/38-038.jpg" alt="Backyard with cedar fence and open lawn" loading="lazy" />
+      <div class="caption">Fig. 06 · Backyard · Raked cedar fence (2020)</div>
+    </div>
+    <div class="text">
+      <div class="pager">07 / 07 · The Outdoor Room</div>
+      <h3>Four seasons, <em>one yard.</em></h3>
+      <p class="lede">A raked cedar fence in pressure-treated wood. Interlock stone hardscaping laid in 2020. A deck made for summer dinners and snow-day mornings alike.</p>
+      <p class="body">Wide enough for games. Long enough for a hammock. Quiet enough to feel further from the city than it is.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROVENANCE / MAKERS ============ -->
+<section class="makers wrap" id="makers" data-screen-label="Makers">
+  <div class="section-head reveal">
+    <span class="label">Provenance</span>
+    <div>
+      <h2>Every fixture was chosen <em>twice</em> — once for the way it works, again for who made it.</h2>
+      <p>Canadian, Italian, Spanish, Québécois. Lifetime warranties where they exist. House &amp; Home features where they don't. Nothing in this home is anonymous.</p>
+    </div>
+  </div>
+
+  <div class="maker-grid reveal">
+    <div class="maker">
+      <span class="num">№ 01</span>
+      <h4>Rubinet</h4>
+      <div class="origin">Made in Canada · Lifetime Warranty</div>
+      <p>Faucetry in the kitchen and powder room. Copper accents customized for the powder space.</p>
+    </div>
+    <div class="maker">
+      <span class="num">№ 02</span>
+      <h4>Riobel</h4>
+      <div class="origin">Made in Canada · Lifetime Warranty</div>
+      <p>Faucets and shower kits in the primary ensuite and basement bath, with temperature-memory technology.</p>
+    </div>
+    <div class="maker">
+      <span class="num">№ 03</span>
+      <h4>Centura</h4>
+      <div class="origin">Italian Tile · Toronto Showroom</div>
+      <p>Contemporary kitchen tile chosen to complement the classic hardwood floors throughout.</p>
+    </div>
+    <div class="maker">
+      <span class="num">№ 04</span>
+      <h4>CIOT</h4>
+      <div class="origin">Italian Tile · Featured in House &amp; Home, 2021</div>
+      <p>Powder room and basement bath. The powder room piece carries hand-applied copper trim detailing.</p>
+    </div>
+    <div class="maker">
+      <span class="num">№ 05</span>
+      <h4>Faenza</h4>
+      <div class="origin">Spanish Baseboard Tile</div>
+      <p>Lines the primary ensuite — patterned, mildew-resistant, and quietly beautiful at the floor line.</p>
+    </div>
+    <div class="maker">
+      <span class="num">№ 06</span>
+      <h4>Renvil</h4>
+      <div class="origin">Québec · Established 1967</div>
+      <p>The mirrors in the primary ensuite. Art-based decor with international reach — true one-of-a-kind pieces.</p>
+    </div>
+    <div class="maker">
+      <span class="num">№ 07</span>
+      <h4>Pentair Freshpoint</h4>
+      <div class="origin">RO with Remineralization · 2022</div>
+      <p>Ultra-purified, mineral-enriched drinking water at the kitchen tap. Installed alongside an EcoWater softener.</p>
+    </div>
+    <div class="maker">
+      <span class="num">№ 08</span>
+      <h4>Lennox + GE</h4>
+      <div class="origin">70K BTU Furnace · 3-Ton Heat Pump · 2024</div>
+      <p>Paired with Aprilaire humidification and an Ecobee Lite thermostat for true zone-aware climate control.</p>
+    </div>
+    <div class="maker">
+      <span class="num">№ 09</span>
+      <h4>VIBA</h4>
+      <div class="origin">Premium Hardware</div>
+      <p>Soft-close barn-door hardware stained to harmonize with the surrounding hardwood. A small thing done right.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="wrap" id="gallery" data-screen-label="Gallery">
+  <div class="section-head reveal">
+    <span class="label">The Tour</span>
+    <div>
+      <h2>Twelve frames. <em>One home.</em></h2>
+      <p>Photography by Herman. Click any image for a closer look.</p>
+    </div>
+  </div>
+
+  <div class="gallery reveal" id="gallery-grid">
+    <figure class="g1" data-src="photos/12-012.jpg"><img src="photos/12-012.jpg" alt="Dining area looking to living room" loading="lazy"><figcaption>Dining → Living</figcaption></figure>
+    <figure class="g2" data-src="photos/05-005.jpg"><img src="photos/05-005.jpg" alt="Front entry with glass door" loading="lazy"><figcaption>Entry</figcaption></figure>
+    <figure class="g3" data-src="photos/06-006.jpg"><img src="photos/06-006.jpg" alt="Living room from foyer" loading="lazy"><figcaption>Living Room</figcaption></figure>
+    <figure class="g4" data-src="photos/18-018.jpg"><img src="photos/18-018.jpg" alt="Powder room with patterned floor" loading="lazy"><figcaption>Powder Room</figcaption></figure>
+    <figure class="g5" data-src="photos/16-016.jpg"><img src="photos/16-016.jpg" alt="Breakfast nook with bench seating" loading="lazy"><figcaption>Breakfast Nook</figcaption></figure>
+    <figure class="g6" data-src="photos/bedroom_w_sheets.png"><img src="photos/bedroom_w_sheets.png" alt="Primary bedroom" loading="lazy"><figcaption>Primary Bedroom</figcaption></figure>
+    <figure class="g7" data-src="photos/22-022.jpg"><img src="photos/22-022.jpg" alt="Walk-in closet" loading="lazy"><figcaption>Walk-In Closet</figcaption></figure>
+    <figure class="g8" data-src="photos/30-030.jpg"><img src="photos/30-030.jpg" alt="Children's bedroom" loading="lazy"><figcaption>Children's bedroom</figcaption></figure>
+    <figure class="g9" data-src="photos/33-033.jpg"><img src="photos/33-033.jpg" alt="Basement bathroom" loading="lazy"><figcaption>Basement Bath</figcaption></figure>
+    <figure class="g10" data-src="photos/39-039.jpg"><img src="photos/39-039.jpg" alt="Backyard panoramic" loading="lazy"><figcaption>The Backyard</figcaption></figure>
+  </div>
+</section>
+
+<!-- ============ VIDEO TOUR ============ -->
+<section class="video-tour" id="video" data-screen-label="Video Tour">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="label">Video Tour</span>
+      <div>
+        <h2>Walk through it<br/><em>before you visit.</em></h2>
+        <p>A full walkthrough of every room, every detail — from the custom kitchen to the spa ensuite. Press play.</p>
+      </div>
+    </div>
+    <div class="video-wrap reveal">
+      <iframe
+        src="https://player.vimeo.com/video/1076268477?h=eae45e1314&badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0&color=cbb98e"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+        title="1474 Prince John Circle — Video Walkthrough"
+      ></iframe>
+    </div>
+    <div class="video-meta reveal">
+      <span>1474 Prince John Circle · Oakville, ON</span>
+      <span>Full Walkthrough · 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="wrap" id="updates" data-screen-label="Updates">
+  <div class="section-head reveal">
+    <span class="label">Investment Record</span>
+    <div>
+      <h2>Five years of deliberate <em>upgrades</em>.</h2>
+      <p>Recent strategic investments — major systems, premium fixtures, and outdoor hardscaping — recorded year by year. The kind of maintenance that adds value rather than chases it.</p>
+    </div>
+  </div>
+
+  <div class="timeline reveal">
+    <div class="years">
+      <span class="label">2020 → 2025</span>
+      <h3>Documented, dated, and warrantied.</h3>
+    </div>
+    <ol class="tl-list">
+      <li class="tl-row">
+        <div class="tl-year">2025</div>
+        <ul class="tl-items">
+          <li><strong>Roof replacement</strong> — Fall 2025, 10-year warranty.</li>
+        </ul>
+      </li>
+      <li class="tl-row">
+        <div class="tl-year">2024</div>
+        <ul class="tl-items">
+          <li><strong>HVAC overhaul</strong> — Lennox 70K BTU furnace + GE 3-ton heat pump.</li>
+          <li><strong>Smart climate</strong> — Aprilaire whole-home humidifier + Ecobee Lite thermostat.</li>
+          <li><strong>Main floor</strong> — repainted in neutral tones; custom coat closet added.</li>
+          <li><strong>Basement</strong> — wet bar built with modern finishes.</li>
+        </ul>
+      </li>
+      <li class="tl-row">
+        <div class="tl-year">2022</div>
+        <ul class="tl-items">
+          <li><strong>Water</strong> — Vesta tankless water heater installed.</li>
+          <li><strong>Softening</strong> — EcoWater compact softener installed.</li>
+          <li><strong>Drinking</strong> — Pentair RO system with remineralization.</li>
+          <li><strong>Envelope</strong> — attic &amp; garage insulation upgraded.</li>
+        </ul>
+      </li>
+      <li class="tl-row">
+        <div class="tl-year">2020</div>
+        <ul class="tl-items">
+          <li><strong>Privacy</strong> — raked cedar fence installed in pressure-treated wood.</li>
+          <li><strong>Hardscape</strong> — interlock stone laid throughout the outdoor circulation.</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ LOCATION ============ -->
+<section class="wrap" id="location" data-screen-label="Location">
+  <div class="section-head reveal">
+    <span class="label">The Neighborhood</span>
+    <div>
+      <h2>An Oakville address with <em>everything</em> within reach.</h2>
+      <p>Prince John Circle sits inside one of the region's most desirable family neighborhoods — top-ranked schools, quiet streets, and surprisingly fast access to three major commuter routes plus the Clarkson GO line into Toronto.</p>
+    </div>
+  </div>
+
+  <div class="location reveal">
+    <div class="map" aria-hidden="true">
+      <svg viewBox="0 0 400 400" preserveAspectRatio="none">
+        <defs>
+          <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#c9c1b1" stroke-width=".5"/>
+          </pattern>
+        </defs>
+        <rect width="400" height="400" fill="url(#g)"/>
+        <!-- "roads" -->
+        <path d="M 0 220 Q 120 200 200 240 T 400 200" stroke="#6e7a5e" stroke-width="2" fill="none" opacity=".7"/>
+        <path d="M 200 0 L 200 400" stroke="#a9a08c" stroke-width="1.5" fill="none" opacity=".5"/>
+        <path d="M 0 100 L 400 120" stroke="#a9a08c" stroke-width="1" fill="none" opacity=".4"/>
+        <path d="M 0 320 L 400 300" stroke="#a9a08c" stroke-width="1" fill="none" opacity=".4"/>
+        <!-- circle drive -->
+        <circle cx="200" cy="200" r="34" stroke="#6e7a5e" stroke-width="1.5" fill="none" opacity=".6" stroke-dasharray="3 4"/>
+        <text x="20" y="380" font-family="JetBrains Mono" font-size="9" letter-spacing="2" fill="#3a3a36" opacity=".6">N 43°27' W 79°41'</text>
+      </svg>
+      <div class="pin"></div>
+      <div class="addr">1474 Prince John Cir</div>
+    </div>
+
+    <div class="details">
+      <h3>Quiet street.<br/><em>Connected</em> address.</h3>
+      <p>Walk the kids to top-ranked schools. Drive five minutes to the QEW for Toronto, or to the 407 and 401. Or skip the car altogether — Clarkson GO is a short hop, with regular trains into Union.</p>
+      <p>The neighborhood itself is the kind of family-first block where new residents arrive and never leave: mature trees, quiet evenings, sidewalk hellos.</p>
+
+      <div class="access">
+        <div class="row"><span class="k">QEW</span><span class="v">5 min</span><span class="t">By Car</span></div>
+        <div class="row"><span class="k">407</span><span class="v">10 min</span><span class="t">By Car</span></div>
+        <div class="row"><span class="k">401</span><span class="v">15 min</span><span class="t">By Car</span></div>
+        <div class="row"><span class="k">Clarkson GO</span><span class="v">8 min</span><span class="t">By Car · Then Union</span></div>
+        <div class="row"><span class="k">Schools</span><span class="v">Walkable</span><span class="t">Top-Ranked, Public</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="agent-card wrap reveal" id="agent">
+  <div class="agent-copy">
+    <span class="label">Listing Representative</span>
+    <h2>Shishir Jain<br/><em>Sales Representative, eXp Realty</em></h2>
+    <p>Shishir brings local Oakville market expertise and 10+ years of consultative sales experience to every showing and negotiation. Reach him directly for a smooth viewing process and professional support from list to close.</p>
+    <div class="agent-contact">
+      <a href="mailto:shishir.jain@exprealty.com">Email Shishir</a>
+      <a href="tel:4379890322">Call 437‑989‑0322</a>
+    </div>
+    <p class="agent-link"><a href="https://www.shishirjain.com" target="_blank" rel="noreferrer">shishirjain.com</a></p>
+  </div>
+  <div class="agent-photo">
+    <img src="https://dtzulyujzhqiu.cloudfront.net/expcorporate377/profiles/1612315727.jpg" alt="Headshot of Shishir Jain" />
+  </div>
+</section>
+
+<!-- ============ CTA / VISIT ============ -->
+<section class="visit" id="visit" data-screen-label="Visit">
+  <div class="wrap grid reveal">
+    <div>
+      <h2>Come <em>walk</em><br/>through it.</h2>
+      <p>Viewings by appointment. Bring your questions — the kind of details that don't photograph well are the ones worth standing inside of.</p>
+    </div>
+    <form class="form" id="viewing-form" action="https://formspree.io/f/mbdbbwlo" method="POST">
+      <div class="field"><span class="label">Name</span><input type="text" name="name" placeholder="Your full name" required /></div>
+      <div class="field"><span class="label">Email</span><input type="email" name="email" placeholder="you@example.com" required /></div>
+      <div class="field"><span class="label">Phone</span><input type="tel" name="phone" placeholder="Optional" /></div>
+      <div class="field"><span class="label">Preferred</span>
+        <select name="preferred_time">
+          <option>Weekend afternoon</option>
+          <option>Weekday evening</option>
+          <option>Weekday morning</option>
+          <option>Whenever works</option>
+        </select>
+      </div>
+      <button class="submit" type="submit" id="viewing-submit">Request a Viewing →</button>
+      <p id="viewing-status" style="margin-top:16px; font-family:var(--mono); font-size:11px; letter-spacing:.18em; display:none;"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="row">
+    <div class="brand-foot">1474 Prince John Circle, Oakville</div>
+    <div>© 2026 · Sale · All Photography by Herman</div>
+    <div>Designed with Intention</div>
+  </div>
+  <div class="row">
+    <div>Shishir Jain · Sales Representative</div>
+    <div><a href="mailto:shishir.jain@exprealty.com">shishir.jain@exprealty.com</a></div>
+    <div><a href="tel:4379890322">437-989-0322</a></div>
+  </div>
 </footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="close" id="lb-close" aria-label="Close">✕</button>
+  <button class="prev" id="lb-prev" aria-label="Previous">‹</button>
+  <button class="next" id="lb-next" aria-label="Next">›</button>
+  <img id="lb-img" alt="" />
+  <div class="counter" id="lb-counter">01 / 10</div>
+</div>
+
+<script>
+  // Nav background on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive:true });
+
+  // Reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold:0.12, rootMargin:'0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Lightbox
+  const grid = document.getElementById('gallery-grid');
+  const figures = [...grid.querySelectorAll('figure')];
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lb-img');
+  const lbCounter = document.getElementById('lb-counter');
+  let idx = 0;
+
+  function open(i){
+    idx = (i + figures.length) % figures.length;
+    const src = figures[idx].dataset.src;
+    lbImg.src = src;
+    lbCounter.textContent = String(idx+1).padStart(2,'0') + ' / ' + String(figures.length).padStart(2,'0');
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  figures.forEach((f, i) => f.addEventListener('click', () => open(i)));
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-prev').addEventListener('click', () => open(idx - 1));
+  document.getElementById('lb-next').addEventListener('click', () => open(idx + 1));
+  lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+  window.addEventListener('keydown', (e) => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') open(idx - 1);
+    if (e.key === 'ArrowRight') open(idx + 1);
+  });
+
+  /* ---------- CAROUSEL CONTROL ---------- */
+  const carousel = document.getElementById('familyRoomCarousel');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const prevBtn = document.getElementById('carouselPrev');
+  const nextBtn = document.getElementById('carouselNext');
+  let currentSlide = 0;
+  const totalSlides = 3;
+  let autoplayInterval;
+
+  function goToSlide(n) {
+    currentSlide = (n + totalSlides) % totalSlides;
+    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+    
+    dots.forEach((dot, i) => {
+      if (i === currentSlide) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+
+    clearInterval(autoplayInterval);
+    startAutoplay();
+  }
+
+  function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+      goToSlide(currentSlide + 1);
+    }, 5000);
+  }
+
+  prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
+  nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
+  
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      goToSlide(parseInt(e.target.dataset.slide));
+    });
+  });
+
+  startAutoplay();
+
+  /* ---------- CONTACT FORM (Formspree) ---------- */
+  const viewingForm = document.getElementById('viewing-form');
+  const viewingSubmit = document.getElementById('viewing-submit');
+  const viewingStatus = document.getElementById('viewing-status');
+
+  viewingForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    viewingSubmit.textContent = 'Sending…';
+    viewingSubmit.disabled = true;
+
+    try {
+      const response = await fetch(viewingForm.action, {
+        method: 'POST',
+        body: new FormData(viewingForm),
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        viewingSubmit.textContent = 'Sent · We\'ll be in touch';
+        viewingStatus.textContent = 'Thank you — Shishir will reach out shortly to confirm your viewing.';
+        viewingStatus.style.color = 'rgba(250,246,237,.65)';
+        viewingStatus.style.display = 'block';
+        viewingForm.reset();
+      } else {
+        throw new Error('Network error');
+      }
+    } catch {
+      viewingSubmit.textContent = 'Request a Viewing →';
+      viewingSubmit.disabled = false;
+      viewingStatus.textContent = 'Something went wrong. Please email shishir.jain@exprealty.com directly.';
+      viewingStatus.style.color = '#cbb98e';
+      viewingStatus.style.display = 'block';
+    }
+  });
+</script>
 
 </body>
 </html>
