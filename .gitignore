@@ -1,0 +1,19 @@
+# Video masters — hosted on Vimeo, kept locally as archive
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# macOS
+.DS_Store
+._*
+
+# Editor / OS junk
+*.swp
+*.swo
+Thumbs.db
+
+# Local-only working files
+*.psd
+*.ai
+*.sketch

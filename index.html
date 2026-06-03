@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>1474 Prince John Circle — Oakville</title>
 <meta name="description" content="A meticulously updated home in Oakville where intentional design meets modern functionality. Premium fixtures, smart systems, and spaces made for both quiet evenings and gathering." />
+<meta name="theme-color" content="#f4efe6" />
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="1474 Prince John Circle — Oakville" />
+<meta property="og:description" content="A meticulously updated Oakville home: custom kitchen, spa ensuite, finished lower level, and a documented record of premium upgrades." />
+<meta property="og:image" content="https://1474pjc.github.io/photos/01-001.jpg" />
+<meta property="og:url" content="https://1474pjc.github.io/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="1474 Prince John Circle — Oakville" />
+<meta name="twitter:description" content="A meticulously updated Oakville home where intentional design meets modern functionality." />
+<meta name="twitter:image" content="https://1474pjc.github.io/photos/01-001.jpg" />
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f4efe6'/%3E%3Ctext x='50' y='66' font-family='Georgia,serif' font-size='34' font-style='italic' text-anchor='middle' fill='%231a1a1a'%3E1474%3C/text%3E%3C/svg%3E" />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QGT27WZJG3"></script>
 <script>
@@ -123,7 +135,7 @@
   }
   .hero .photo{
     position:absolute; inset:0;
-    background:url("photos/01-001.jpg") center 62%/cover no-repeat;
+    background:url("photos/11-011.jpg") center center/cover no-repeat;
     transform:scale(1.04);
   }
   .hero::after{
@@ -212,6 +224,7 @@
 
   /* ---------- SECTION SHELL ---------- */
   section{padding-block:clamp(80px, 10vw, 160px)}
+  section[id]{ scroll-margin-top:84px; }
   .section-head{
     display:grid; grid-template-columns:1fr 2.2fr; gap:var(--col-gap);
     margin-bottom:clamp(60px, 6vw, 100px);
@@ -256,6 +269,17 @@
     .glance .cell{padding-right:24px; border-right:1px solid var(--rule-soft);}
     .glance .cell:nth-child(2n){border-right:0}
     .glance .cell:nth-child(odd){border-right:1px solid var(--rule-soft)}
+  }
+  @media (max-width:560px){
+    .glance{grid-template-columns:1fr; gap:0}
+    .glance .cell{
+      flex-direction:row; align-items:baseline; gap:18px;
+      padding:22px 0;
+      border-right:0 !important;
+      border-bottom:1px solid var(--rule-soft);
+    }
+    .glance .cell:last-child{border-bottom:0}
+    .glance .num{font-size:42px; min-width:90px}
   }
 
   /* ---------- FEATURE SPREADS (editorial split) ---------- */
@@ -320,11 +344,23 @@
     background:var(--ink);
     overflow:hidden;
   }
-  .bleed img{ width:100%; height:100%; object-fit:cover; opacity:.92}
+  .bleed img{ width:100%; height:100%; object-fit:cover; opacity:.82}
+  .bleed::after{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(to bottom,
+      rgba(10,10,10,0) 0%,
+      rgba(10,10,10,0) 35%,
+      rgba(10,10,10,.55) 70%,
+      rgba(10,10,10,.85) 100%);
+    pointer-events:none;
+    z-index:5;
+  }
   .bleed .pull{
     position:absolute; left:var(--gutter); right:var(--gutter); bottom:48px;
     color:var(--cream);
     display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:end;
+    z-index:8;
+    text-shadow:0 2px 24px rgba(0,0,0,.45);
   }
   .bleed .pull blockquote{
     font-family:var(--serif); font-style:italic; font-weight:300;
@@ -333,7 +369,7 @@
   }
   .bleed .pull .cite{
     font-family:var(--mono); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
-    color:rgba(250,246,237,.75); text-align:right;
+    color:rgba(250,246,237,.85); text-align:right;
   }
   @media (max-width:760px){
     .bleed .pull{grid-template-columns:1fr; gap:18px}
@@ -487,7 +523,7 @@
   .tl-row:last-child{border-bottom:0}
   .tl-year{
     font-family:var(--serif); font-weight:400;
-    font-size:32px; letter-spacing:.02em;
+    font-size:clamp(24px, 3vw, 32px); letter-spacing:.02em;
     color:var(--sage);
   }
   .tl-items{ display:grid; gap:6px }
@@ -531,6 +567,13 @@
     font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
     color:var(--ink); background:var(--cream); padding:8px 12px;
   }
+  .location .map .map-link{
+    position:absolute; right:24px; bottom:24px;
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--ink); background:var(--cream); padding:10px 14px;
+    transition:background .25s ease, color .25s ease;
+  }
+  .location .map .map-link:hover{ background:var(--ink); color:var(--cream); }
   .location .details h3{
     font-family:var(--serif); font-weight:300;
     font-size:clamp(32px, 4vw, 52px); line-height:1.05; margin-bottom:24px;
@@ -710,11 +753,61 @@
     width:100%; height:100%;
     border:0;
   }
+  .video-poster{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+    opacity:.55;
+    transition:opacity .35s ease;
+  }
+  .video-play{
+    position:absolute; top:50%; left:50%;
+    transform:translate(-50%, -50%);
+    display:inline-flex; align-items:center; gap:14px;
+    padding:18px 28px;
+    background:var(--cream); color:var(--ink);
+    font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+    cursor:pointer;
+    transition:background .25s ease, transform .25s ease;
+  }
+  .video-play:hover{ background:#fff; transform:translate(-50%, -50%) scale(1.03); }
+  .video-play .play-icon{
+    width:24px; height:24px; border-radius:50%;
+    background:var(--ink); color:var(--cream);
+    display:inline-flex; align-items:center; justify-content:center;
+    font-size:9px; padding-left:2px;
+  }
+  #vimeo-facade:hover .video-poster{ opacity:.7; }
   .video-meta{
     display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px;
     margin-top:24px;
     font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
     color:rgba(250,246,237,.45);
+  }
+
+  /* ---------- MOBILE ACTION BAR ---------- */
+  .mobile-bar{ display:none; }
+  @media (max-width:760px){
+    .mobile-bar{
+      display:grid; grid-template-columns:1fr 1fr;
+      position:fixed; left:0; right:0; bottom:0;
+      z-index:45; gap:0;
+      background:color-mix(in oklab, var(--paper) 94%, transparent);
+      backdrop-filter:saturate(140%) blur(10px);
+      border-top:1px solid var(--rule);
+      padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    }
+    .mobile-bar a{
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      padding:14px 10px;
+      font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+      transition:background .25s ease;
+    }
+    .mobile-bar a.call{ color:var(--ink); border:1px solid var(--ink); margin-right:6px; }
+    .mobile-bar a.book{ background:var(--ink); color:var(--cream); margin-left:6px; }
+    .mobile-bar a.call:active{ background:var(--ink); color:var(--cream); }
+    body{ padding-bottom:72px; }
+    footer{ padding-bottom:24px; }
   }
 </style>
 </head>
@@ -725,12 +818,12 @@
   <a href="#top" class="brand" data-screen-label="Brand">1474<small>Prince John Cir · Oakville</small></a>
   <nav class="links">
     <a href="#story">The Home</a>
+    <a href="#video">Video Tour</a>
     <a href="#kitchen">Interiors</a>
     <a href="#makers">Provenance</a>
     <a href="#gallery">Gallery</a>
     <a href="#updates">Investments</a>
     <a href="#location">Location</a>
-    <a href="#video">Video Tour</a>
   </nav>
   <a href="#visit" class="cta">Book a Viewing</a>
 </header>
@@ -791,6 +884,30 @@
   </div>
 </section>
 
+<!-- ============ VIDEO TOUR ============ -->
+<section class="video-tour" id="video" data-screen-label="Video Tour">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="label">Video Tour</span>
+      <div>
+        <h2>Walk through it<br/><em>before you visit.</em></h2>
+        <p>A full walkthrough of every room, every detail — from the custom kitchen to the spa ensuite. Press play.</p>
+      </div>
+    </div>
+    <div class="video-wrap reveal" id="vimeo-facade" data-vimeo="https://player.vimeo.com/video/1198180930?autoplay=1&badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0&color=cbb98e">
+      <img class="video-poster" src="photos/12-012.jpg" alt="Press play to watch the walkthrough" loading="lazy" />
+      <button class="video-play" type="button" aria-label="Play walkthrough">
+        <span class="play-icon">▶</span>
+        <span>Play Walkthrough</span>
+      </button>
+    </div>
+    <div class="video-meta reveal">
+      <span>1474 Prince John Circle · Oakville, ON</span>
+      <span>Full Walkthrough · 2026</span>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FEATURE SPREAD — KITCHEN ============ -->
 <section class="wrap" id="kitchen" data-screen-label="Kitchen">
   <div class="spread left reveal">
@@ -821,7 +938,7 @@
     <div class="text">
       <div class="pager">03 / 07 · The Detail</div>
       <h3>A backsplash that <em>thinks</em>.</h3>
-      <p class="lede">Painted glass behind the cooktop — color-matched to the granite — makes cleanup effortless while reading as a single, deliberate composition.</p>
+      <p class="lede">Painted glass behind the cooktop, color-matched to the granite — makes cleanup effortless while reading as a single, deliberate composition.</p>
       <p class="body">A high-efficiency vented hood eliminates odors entirely. Built-in Bosch ovens and the gas cooktop sit flush against the white cabinetry, so the kitchen never advertises itself as a kitchen — it just works.</p>
     </div>
   </div>
@@ -859,7 +976,7 @@
 <section class="wrap" id="suite" data-screen-label="Primary Suite">
   <div class="spread right reveal">
     <div class="media">
-      <img src="photos/bedroom_w_sheets.png" alt="Primary bedroom with teal accent wall" loading="lazy" />
+      <img src="photos/25-025.png" alt="Primary bedroom with teal accent wall" loading="lazy" />
       <div class="caption">Fig. 03 · Primary Bedroom · Barn-door dressing entry</div>
     </div>
     <div class="text">
@@ -1004,35 +1121,11 @@
     <figure class="g3" data-src="photos/06-006.jpg"><img src="photos/06-006.jpg" alt="Living room from foyer" loading="lazy"><figcaption>Living Room</figcaption></figure>
     <figure class="g4" data-src="photos/18-018.jpg"><img src="photos/18-018.jpg" alt="Powder room with patterned floor" loading="lazy"><figcaption>Powder Room</figcaption></figure>
     <figure class="g5" data-src="photos/16-016.jpg"><img src="photos/16-016.jpg" alt="Breakfast nook with bench seating" loading="lazy"><figcaption>Breakfast Nook</figcaption></figure>
-    <figure class="g6" data-src="photos/bedroom_w_sheets.png"><img src="photos/bedroom_w_sheets.png" alt="Primary bedroom" loading="lazy"><figcaption>Primary Bedroom</figcaption></figure>
+    <figure class="g6" data-src="photos/25-025.png"><img src="photos/25-025.png" alt="Primary bedroom" loading="lazy"><figcaption>Primary Bedroom</figcaption></figure>
     <figure class="g7" data-src="photos/22-022.jpg"><img src="photos/22-022.jpg" alt="Walk-in closet" loading="lazy"><figcaption>Walk-In Closet</figcaption></figure>
     <figure class="g8" data-src="photos/30-030.jpg"><img src="photos/30-030.jpg" alt="Children's bedroom" loading="lazy"><figcaption>Children's bedroom</figcaption></figure>
     <figure class="g9" data-src="photos/33-033.jpg"><img src="photos/33-033.jpg" alt="Basement bathroom" loading="lazy"><figcaption>Basement Bath</figcaption></figure>
     <figure class="g10" data-src="photos/39-039.jpg"><img src="photos/39-039.jpg" alt="Backyard panoramic" loading="lazy"><figcaption>The Backyard</figcaption></figure>
-  </div>
-</section>
-
-<!-- ============ VIDEO TOUR ============ -->
-<section class="video-tour" id="video" data-screen-label="Video Tour">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="label">Video Tour</span>
-      <div>
-        <h2>Walk through it<br/><em>before you visit.</em></h2>
-        <p>A full walkthrough of every room, every detail — from the custom kitchen to the spa ensuite. Press play.</p>
-      </div>
-    </div>
-    <div class="video-wrap reveal">
-      <iframe
-        src="https://player.vimeo.com/video/1076268477?h=eae45e1314&badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0&color=cbb98e"
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-        title="1474 Prince John Circle — Video Walkthrough"
-      ></iframe>
-    </div>
-    <div class="video-meta reveal">
-      <span>1474 Prince John Circle · Oakville, ON</span>
-      <span>Full Walkthrough · 2026</span>
-    </div>
   </div>
 </section>
 
@@ -1117,6 +1210,7 @@
       </svg>
       <div class="pin"></div>
       <div class="addr">1474 Prince John Cir</div>
+      <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=1474+Prince+John+Circle+Oakville+ON" target="_blank" rel="noreferrer">Open in Google Maps →</a>
     </div>
 
     <div class="details">
@@ -1189,6 +1283,12 @@
     <div><a href="tel:4379890322">437-989-0322</a></div>
   </div>
 </footer>
+
+<!-- ============ STICKY MOBILE ACTION BAR ============ -->
+<div class="mobile-bar" aria-label="Quick actions">
+  <a href="tel:4379890322" class="call">Call</a>
+  <a href="#visit" class="book">Book a Viewing</a>
+</div>
 
 <!-- ============ LIGHTBOX ============ -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer">
@@ -1288,6 +1388,20 @@
   });
 
   startAutoplay();
+
+  /* ---------- VIMEO LAZY FACADE ---------- */
+  const vimeoFacade = document.getElementById('vimeo-facade');
+  if (vimeoFacade) {
+    vimeoFacade.querySelector('.video-play').addEventListener('click', () => {
+      const url = vimeoFacade.dataset.vimeo;
+      const iframe = document.createElement('iframe');
+      iframe.src = url;
+      iframe.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media';
+      iframe.title = '1474 Prince John Circle — Video Walkthrough';
+      vimeoFacade.innerHTML = '';
+      vimeoFacade.appendChild(iframe);
+    });
+  }
 
   /* ---------- CONTACT FORM (Formspree) ---------- */
   const viewingForm = document.getElementById('viewing-form');
