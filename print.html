@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>1474 Prince John Circle — Scan Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1a1a1a;
+    --ink-soft:#3a3a36;
+    --paper:#f4efe6;
+    --rule:#c9c1b1;
+    --sage:#6e7a5e;
+    --serif:'Cormorant Garamond', Georgia, serif;
+    --sans:'Inter Tight', system-ui, sans-serif;
+    --mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{
+    background:#d8d2c2;
+    font-family:var(--sans);
+    color:var(--ink);
+    min-height:100vh;
+    display:flex; align-items:center; justify-content:center;
+    padding:24px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .sheet{
+    background:var(--paper);
+    width:8.5in;
+    height:11in;
+    padding:0.7in 0.85in;
+    display:flex; flex-direction:column;
+    position:relative;
+    box-shadow:0 12px 40px rgba(0,0,0,.15);
+    overflow:hidden;
+  }
+
+  /* corner ornaments */
+  .sheet::before, .sheet::after{
+    content:""; position:absolute;
+    width:42px; height:42px;
+    border:1px solid var(--ink);
+  }
+  .sheet::before{ top:24px; left:24px; border-right:0; border-bottom:0; }
+  .sheet::after{  bottom:24px; right:24px; border-left:0; border-top:0; }
+
+  /* ---------- TOP ---------- */
+  .top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--rule);
+  }
+  .brand{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:26px;
+    letter-spacing:.01em;
+    font-weight:500;
+  }
+  .brand small{
+    display:block;
+    font-family:var(--mono); font-style:normal;
+    font-size:9.5px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--ink-soft); margin-top:4px;
+  }
+  .label{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .top .estate{
+    font-family:var(--serif); font-style:italic; font-size:14px;
+    color:var(--ink-soft);
+    text-align:right;
+  }
+  .top .estate em{
+    font-family:var(--mono); font-style:normal;
+    font-size:9.5px; letter-spacing:.22em; text-transform:uppercase;
+    display:block; margin-bottom:4px;
+  }
+
+  /* ---------- HEADLINE ---------- */
+  .headline{
+    margin-top:24px;
+  }
+  .headline .eyebrow{
+    display:inline-block;
+    border-top:1px solid var(--ink);
+    padding-top:8px;
+    margin-bottom:14px;
+  }
+  .headline h1{
+    font-family:var(--serif);
+    font-weight:300;
+    font-size:54px;
+    line-height:.95;
+    letter-spacing:-.015em;
+    max-width:9ch;
+  }
+  .headline h1 em{
+    font-style:italic;
+    color:var(--sage);
+  }
+  .headline .sub{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:16px;
+    color:var(--ink-soft);
+    margin-top:12px;
+    max-width:42ch;
+    line-height:1.4;
+  }
+
+  /* ---------- QR BLOCK ---------- */
+  .qr-block{
+    margin-top:28px;
+    flex:1;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:32px;
+    align-items:center;
+  }
+
+  .qr-copy .label{ margin-bottom:14px; display:block; }
+  .qr-copy h2{
+    font-family:var(--serif);
+    font-weight:300;
+    font-size:34px; line-height:1.05;
+    letter-spacing:-.005em;
+    margin-bottom:14px;
+  }
+  .qr-copy h2 em{ font-style:italic; color:var(--sage); }
+  .qr-copy p{
+    font-size:13.5px; line-height:1.55;
+    color:var(--ink-soft);
+    max-width:38ch;
+  }
+  .qr-copy .url{
+    margin-top:18px;
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.04em;
+    color:var(--ink);
+    word-break:break-all;
+  }
+  .qr-copy .url::before{
+    content:""; display:block;
+    width:36px; height:1px;
+    background:var(--sage);
+    margin-bottom:10px;
+  }
+
+  .qr-wrap{
+    background:#fff;
+    padding:18px;
+    border:1px solid var(--ink);
+    position:relative;
+  }
+  .qr-wrap img{
+    display:block;
+    width:230px; height:230px;
+  }
+  .qr-wrap .scan-tag{
+    position:absolute;
+    bottom:-10px; left:50%;
+    transform:translateX(-50%);
+    background:var(--paper);
+    padding:0 14px;
+    font-family:var(--mono);
+    font-size:10px; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--ink);
+  }
+
+  /* ---------- HIGHLIGHTS STRIP ---------- */
+  .highlights{
+    margin-top:24px;
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    border-top:1px solid var(--rule);
+    border-bottom:1px solid var(--rule);
+  }
+  .highlights .item{
+    padding:12px 14px 12px 0;
+    border-right:1px solid var(--rule);
+  }
+  .highlights .item:last-child{ border-right:0; padding-right:0; }
+  .highlights .item .k{
+    font-family:var(--mono); font-size:9px; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--sage);
+    margin-bottom:6px;
+  }
+  .highlights .item .v{
+    font-family:var(--serif);
+    font-size:16px; line-height:1.2;
+    color:var(--ink);
+  }
+  .highlights .item .v em{ font-style:italic; }
+
+  /* ---------- FOOTER ---------- */
+  .foot{
+    margin-top:auto;
+    padding-top:18px;
+    display:flex; justify-content:space-between; align-items:flex-end;
+    gap:24px;
+  }
+  .foot .agent .name{
+    font-family:var(--serif);
+    font-size:20px; font-style:italic;
+    margin-bottom:4px;
+  }
+  .foot .agent .role{
+    font-family:var(--mono);
+    font-size:9.5px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .foot .contact{
+    text-align:right;
+    font-family:var(--mono);
+    font-size:11px; letter-spacing:.04em;
+    color:var(--ink);
+    line-height:1.7;
+  }
+  .foot .contact .row{ display:block; }
+
+  /* ---------- PRINT ---------- */
+  @page{
+    size: letter portrait;
+    margin: 0;
+  }
+  @media print{
+    body{ background:#fff; padding:0; display:block; }
+    .sheet{
+      width:8.5in; height:11in;
+      box-shadow:none;
+      page-break-after:avoid;
+    }
+    /* preserve sage + paper background in print */
+    *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sheet">
+
+  <div class="top">
+    <div class="brand">
+      1474
+      <small>Prince John Circle · Oakville, ON</small>
+    </div>
+    <div class="estate">
+      <em>Estate №</em>
+      1474 / 2026
+    </div>
+  </div>
+
+  <div class="headline">
+    <span class="eyebrow label">Welcome</span>
+    <h1>A home<br/>designed with<br/><em>intention.</em></h1>
+    <p class="sub">Thank you for visiting. The full story — every photograph, every fixture, the investment record, and a complete video walkthrough — lives one scan away.</p>
+  </div>
+
+  <div class="qr-block">
+    <div class="qr-copy">
+      <span class="label">The Listing</span>
+      <h2>Take it <em>home.</em></h2>
+      <p>Browse the full gallery and read the provenance of every fixture at your own pace. Share it with anyone who couldn't be here today.</p>
+      <div class="url">1474pjc.github.io</div>
+    </div>
+    <div class="qr-wrap">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=https%3A%2F%2F1474pjc.github.io%2F%3Futm_source%3Dqr%26utm_medium%3Dprint%26utm_campaign%3Dhouse_visit&qzone=1&format=svg&color=1a1a1a&bgcolor=ffffff" alt="QR code linking to 1474pjc.github.io" />
+      <span class="scan-tag">Scan to Explore</span>
+    </div>
+  </div>
+
+  <div class="highlights">
+    <div class="item">
+      <div class="k">Bedrooms</div>
+      <div class="v">3<em>+1</em></div>
+    </div>
+    <div class="item">
+      <div class="k">Baths</div>
+      <div class="v">3<em>+1</em></div>
+    </div>
+    <div class="item">
+      <div class="k">Levels Finished</div>
+      <div class="v">2<em>+1</em></div>
+    </div>
+    <div class="item">
+      <div class="k">Recent</div>
+      <div class="v">Roof <em>'25</em></div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div class="agent">
+      <div class="name">Shishir Jain</div>
+      <div class="role">Sales Representative · eXp Realty</div>
+    </div>
+    <div class="contact">
+      <span class="row">437&#8209;989&#8209;0322</span>
+      <span class="row">shishir.jain@exprealty.com</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
+</content>
+</invoke>
