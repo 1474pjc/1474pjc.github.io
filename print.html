@@ -49,114 +49,80 @@
   .sheet::before{ top:24px; left:24px; border-right:0; border-bottom:0; }
   .sheet::after{  bottom:24px; right:24px; border-left:0; border-top:0; }
 
-  /* ---------- TOP ---------- */
-  .top{
-    display:flex; justify-content:space-between; align-items:flex-start;
-    padding-bottom:18px;
+  /* ---------- META BAR ---------- */
+  .meta{
+    display:flex; justify-content:space-between; align-items:center;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--rule);
+    font-family:var(--mono);
+    font-size:9.5px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- ADDRESS MASTHEAD ---------- */
+  .address{
+    text-align:center;
+    padding:34px 0 28px;
     border-bottom:1px solid var(--rule);
   }
-  .brand{
+  .address .num{
     font-family:var(--serif);
-    font-style:italic;
-    font-size:26px;
-    letter-spacing:.01em;
-    font-weight:500;
-  }
-  .brand small{
+    font-weight:300;
+    font-size:96px;
+    line-height:1;
+    letter-spacing:-.02em;
+    color:var(--ink);
     display:block;
-    font-family:var(--mono); font-style:normal;
-    font-size:9.5px; letter-spacing:.22em; text-transform:uppercase;
-    color:var(--ink-soft); margin-top:4px;
   }
-  .label{
+  .address h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-style:italic;
+    font-size:28px;
+    line-height:1.1;
+    color:var(--ink);
+    margin-top:6px;
+    letter-spacing:.005em;
+  }
+  .address .city{
+    display:block;
+    margin-top:10px;
+    font-family:var(--mono); font-style:normal;
+    font-size:10px; letter-spacing:.28em; text-transform:uppercase;
+    color:var(--sage);
+  }
+
+  /* ---------- INVITE LINE ---------- */
+  .invite{
+    text-align:center;
+    padding:26px 0 22px;
+  }
+  .invite .tagline{
+    font-family:var(--serif);
+    font-weight:300;
+    font-style:italic;
+    font-size:24px;
+    line-height:1.25;
+    color:var(--ink);
+  }
+  .invite .tagline em{ color:var(--sage); }
+  .invite .welcome{
+    margin-top:14px;
     font-family:var(--mono);
-    font-size:10px;
+    font-size:10.5px;
     letter-spacing:.22em;
     text-transform:uppercase;
     color:var(--ink-soft);
   }
-  .top .estate{
-    font-family:var(--serif); font-style:italic; font-size:14px;
-    color:var(--ink-soft);
-    text-align:right;
-  }
-  .top .estate em{
-    font-family:var(--mono); font-style:normal;
-    font-size:9.5px; letter-spacing:.22em; text-transform:uppercase;
-    display:block; margin-bottom:4px;
-  }
 
-  /* ---------- HEADLINE ---------- */
-  .headline{
-    margin-top:24px;
-  }
-  .headline .eyebrow{
-    display:inline-block;
-    border-top:1px solid var(--ink);
-    padding-top:8px;
-    margin-bottom:14px;
-  }
-  .headline h1{
-    font-family:var(--serif);
-    font-weight:300;
-    font-size:54px;
-    line-height:.95;
-    letter-spacing:-.015em;
-    max-width:9ch;
-  }
-  .headline h1 em{
-    font-style:italic;
-    color:var(--sage);
-  }
-  .headline .sub{
-    font-family:var(--serif);
-    font-style:italic;
-    font-size:16px;
-    color:var(--ink-soft);
-    margin-top:12px;
-    max-width:42ch;
-    line-height:1.4;
-  }
-
-  /* ---------- QR BLOCK ---------- */
+  /* ---------- QR ---------- */
   .qr-block{
-    margin-top:28px;
     flex:1;
-    display:grid;
-    grid-template-columns:1fr auto;
-    gap:32px;
+    display:flex;
+    justify-content:center;
     align-items:center;
+    padding:6px 0 24px;
   }
-
-  .qr-copy .label{ margin-bottom:14px; display:block; }
-  .qr-copy h2{
-    font-family:var(--serif);
-    font-weight:300;
-    font-size:34px; line-height:1.05;
-    letter-spacing:-.005em;
-    margin-bottom:14px;
-  }
-  .qr-copy h2 em{ font-style:italic; color:var(--sage); }
-  .qr-copy p{
-    font-size:13.5px; line-height:1.55;
-    color:var(--ink-soft);
-    max-width:38ch;
-  }
-  .qr-copy .url{
-    margin-top:18px;
-    font-family:var(--mono);
-    font-size:11.5px;
-    letter-spacing:.04em;
-    color:var(--ink);
-    word-break:break-all;
-  }
-  .qr-copy .url::before{
-    content:""; display:block;
-    width:36px; height:1px;
-    background:var(--sage);
-    margin-bottom:10px;
-  }
-
   .qr-wrap{
     background:#fff;
     padding:18px;
@@ -165,7 +131,7 @@
   }
   .qr-wrap img{
     display:block;
-    width:230px; height:230px;
+    width:300px; height:300px;
   }
   .qr-wrap .scan-tag{
     position:absolute;
@@ -174,23 +140,23 @@
     background:var(--paper);
     padding:0 14px;
     font-family:var(--mono);
-    font-size:10px; letter-spacing:.28em; text-transform:uppercase;
+    font-size:10px; letter-spacing:.32em; text-transform:uppercase;
     color:var(--ink);
   }
 
-  /* ---------- HIGHLIGHTS STRIP ---------- */
+  /* ---------- HIGHLIGHTS ---------- */
   .highlights{
-    margin-top:24px;
     display:grid;
     grid-template-columns:repeat(4, 1fr);
     border-top:1px solid var(--rule);
     border-bottom:1px solid var(--rule);
   }
   .highlights .item{
-    padding:12px 14px 12px 0;
+    padding:14px 12px;
+    text-align:center;
     border-right:1px solid var(--rule);
   }
-  .highlights .item:last-child{ border-right:0; padding-right:0; }
+  .highlights .item:last-child{ border-right:0; }
   .highlights .item .k{
     font-family:var(--mono); font-size:9px; letter-spacing:.22em;
     text-transform:uppercase; color:var(--sage);
@@ -198,10 +164,16 @@
   }
   .highlights .item .v{
     font-family:var(--serif);
-    font-size:16px; line-height:1.2;
+    font-weight:400;
+    font-size:22px; line-height:1.1;
     color:var(--ink);
   }
-  .highlights .item .v em{ font-style:italic; }
+  .highlights .item .v em{ font-style:italic; color:var(--sage); }
+  .highlights .item .v sup{
+    font-size:.55em; vertical-align:super;
+    color:var(--sage); font-style:italic;
+    margin-left:1px;
+  }
 
   /* ---------- FOOTER ---------- */
   .foot{
@@ -241,7 +213,6 @@
       box-shadow:none;
       page-break-after:avoid;
     }
-    /* preserve sage + paper background in print */
     *{ -webkit-print-color-adjust:exact !important; print-color-adjust:exact !important; }
   }
 </style>
@@ -250,59 +221,52 @@
 
 <div class="sheet">
 
-  <div class="top">
-    <div class="brand">
-      1474
-      <small>Prince John Circle · Oakville, ON</small>
-    </div>
-    <div class="estate">
-      <em>Estate №</em>
-      1474 / 2026
-    </div>
+  <div class="meta">
+    <span>Estate № 1474 / 2026</span>
+    <span>Oakville · Ontario</span>
   </div>
 
-  <div class="headline">
-    <span class="eyebrow label">Welcome</span>
-    <h1>A home<br/>designed with<br/><em>intention.</em></h1>
-    <p class="sub">Thank you for visiting. The full story lives one scan away: every photograph, every fixture, the investment record, and a complete video walkthrough.</p>
-  </div>
+  <section class="address">
+    <span class="num">1474</span>
+    <h1>Prince John Circle</h1>
+    <span class="city">Oakville &middot; Ontario &middot; Canada</span>
+  </section>
+
+  <section class="invite">
+    <p class="tagline">A home designed with <em>intention.</em></p>
+    <p class="welcome">Thank you for visiting &middot; Scan to know more</p>
+  </section>
 
   <div class="qr-block">
-    <div class="qr-copy">
-      <span class="label">The Listing</span>
-      <h2>Take it <em>home.</em></h2>
-      <p>Browse the full gallery and read the provenance of every fixture at your own pace. Share it with anyone who couldn't be here today.</p>
-      <div class="url">1474pjc.github.io</div>
-    </div>
     <div class="qr-wrap">
       <img src="https://api.qrserver.com/v1/create-qr-code/?size=600x600&data=https%3A%2F%2F1474pjc.github.io%2F%3Futm_source%3Dqr%26utm_medium%3Dprint%26utm_campaign%3Dhouse_visit&qzone=1&format=svg&color=1a1a1a&bgcolor=ffffff" alt="QR code linking to 1474pjc.github.io" />
-      <span class="scan-tag">Scan to Explore</span>
+      <span class="scan-tag">Scan</span>
     </div>
   </div>
 
   <div class="highlights">
     <div class="item">
       <div class="k">Bedrooms</div>
-      <div class="v">3<em>+1</em></div>
+      <div class="v">3<sup>+1</sup></div>
     </div>
     <div class="item">
       <div class="k">Baths</div>
-      <div class="v">3<em>+1</em></div>
+      <div class="v">3<sup>+1</sup></div>
     </div>
     <div class="item">
-      <div class="k">Levels Finished</div>
-      <div class="v">2<em>+1</em></div>
+      <div class="k">Levels</div>
+      <div class="v">2<sup>+1</sup></div>
     </div>
     <div class="item">
-      <div class="k">Upgrades</div>
-      <div class="v">'20<em>–</em>'25</div>
+      <div class="k">Status</div>
+      <div class="v"><em>Turn-key</em></div>
     </div>
   </div>
 
   <div class="foot">
     <div class="agent">
       <div class="name">Shishir Jain</div>
-      <div class="role">Sales Representative · eXp Realty</div>
+      <div class="role">Sales Representative &middot; eXp Realty</div>
     </div>
     <div class="contact">
       <span class="row">437&#8209;989&#8209;0322</span>
@@ -314,5 +278,3 @@
 
 </body>
 </html>
-</content>
-</invoke>
